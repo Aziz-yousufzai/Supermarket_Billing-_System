@@ -349,138 +349,112 @@ int main()
 
             cin>>ch;
 
+    switch(ch)
+    {
+        case 1:ss:
 
-switch(ch)
+        system("cls");
 
-{
-    case 1:ss:
+        gotoxy(25,2);
 
-    system("cls");
+        cout<<"Bill Details";
 
-    gotoxy(25,2);
+        gotoxy(25,3);
 
-    cout<<"Bill Details";
+        cout<<"================\n\n";
 
-    gotoxy(25,3);
+        cout<<"\n\t\t1.All Items\n\n";
 
-    cout<<"================\n\n";
+        cout<<"\t\t2.Back to Main menu\n\n";
 
-    cout<<"\n\t\t1.All Items\n\n";
+        cout<<"\t\tPlease Enter Required Option: ";
 
-    cout<<"\t\t2.Back to Main menu\n\n";
+            int cho;
 
-    cout<<"\t\tPlease Enter Required Option: ";
+            cin>>cho;
 
-int ch,ff;
+            if(cho==1)
 
-float gtotal;
+            {
+                system("cls");
 
-cin>>ch;
+            gotoxy(30,3);
 
-switch(ch)
-{
-    case 1:ss:
+            cout<<" BILL DETAILS ";
 
-    system("cls");
+            gotoxy(3,5);
 
-    gotoxy(25,2);
+            cout<<"ITEM NO";
 
-    cout<<"Bill Details";
+            gotoxy(13,5);
 
-    gotoxy(25,3);
+            cout<<"NAME";
 
-    cout<<"================\n\n";
+            gotoxy(23,5);
 
-    cout<<"\n\t\t1.All Items\n\n";
+            cout<<"PRICE";
 
-    cout<<"\t\t2.Back to Main menu\n\n";
+            gotoxy(33,5);
 
-    cout<<"\t\tPlease Enter Required Option: ";
+            cout<<"QUANTITY";
 
-        int cho;
+            gotoxy(44,5);
 
-        cin>>cho;
+            cout<<"TAX %";
 
-        if(cho==1)
+            gotoxy(52,5);
 
-        {
-            system("cls");
+            cout<<"DISCOUNT %";
 
-        gotoxy(30,3);
+            gotoxy(64,5);
 
-        cout<<" BILL DETAILS ";
+            cout<<"NET AMOUNT";
 
-        gotoxy(3,5);
+            fin.open("itemstore.dat",ios::binary);
 
-        cout<<"ITEM NO";
+            if(!fin)
 
-        gotoxy(13,5);
+            {
+                cout<<"\n\nFile Not Found...";
 
-        cout<<"NAME";
-
-        gotoxy(23,5);
-
-        cout<<"PRICE";
-
-        gotoxy(33,5);
-
-        cout<<"QUANTITY";
-
-        gotoxy(44,5);
-
-        cout<<"TAX %";
-
-        gotoxy(52,5);
-
-        cout<<"DISCOUNT %";
-
-        gotoxy(64,5);
-
-        cout<<"NET AMOUNT";
-
-        fin.open("itemstore.dat",ios::binary);
-
-        if(!fin)
-
-        {
-            cout<<"\n\nFile Not Found...";
-
-        goto menu;}
-
-        fin.seekg(0);
-
-        gtotal=0;
-
-        while(!fin.eof())
-
-        {
-            fin.read((char*)&amt,sizeof(amt));
-
-        if(!fin.eof())
-
-        {amt.report();
-
-        gtotal+=amt.retnetamt();
-
-        ff=0;}
-
-        if(ff!=0) gtotal=0;
-
-        }gotoxy(17,k);
-
-        cout<<"\n\n\n\t\t\tGrand Total="<<gtotal;
-
-        getch();
-
-        fin.close();
-
-        }
-
-        if(cho==2)
-
-        {
             goto menu;}
 
-        goto ss;
-}
-}
+            fin.seekg(0);
+
+            gtotal=0;
+
+            while(!fin.eof())
+
+            {
+                fin.read((char*)&amt,sizeof(amt));
+
+            if(!fin.eof())
+
+            {amt.report();
+
+            gtotal+=amt.retnetamt();
+
+            ff=0;}
+
+            if(ff!=0) gtotal=0;
+
+            }gotoxy(17,k);
+
+            cout<<"\n\n\n\t\t\tGrand Total="<<gtotal;
+
+            getch();
+
+            fin.close();
+
+            }
+
+            if(cho==2)
+
+            {
+            goto menu;}
+            goto ss;
+
+
+
+    }
+    }
